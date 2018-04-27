@@ -48,6 +48,7 @@ class CheckListViewController: UITableViewController {
     func configureCheckmark(for cell: UITableViewCell, withItem item: ChecklistItem) {
         //cell.accessoryType = (item.checked) ? .checkmark : .none
         let myCell = cell as! ChecklistItemCell
+        myCell.checkLabel.textColor = view.tintColor
         myCell.checkLabel.isHidden = (item.checked) ? false : true
     }
     

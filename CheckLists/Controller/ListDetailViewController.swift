@@ -73,11 +73,16 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
         if segue.identifier == "chooseIcon"
         {
             let destination = segue.destination as! IconPickerViewController
-            let index = tableView.indexPath(for: sender as! UITableViewCell)!
             destination.delegate = self
         }
         
         
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   
+   //   let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
+//      cell.isSelected = false
     }
 
 
@@ -92,6 +97,7 @@ extension ListDetailViewController: IconPickerViewControllerDelegate
     func iconPickerTableViewController(_ controller: IconPickerViewController, HasChoseIcon icon: IconAsset) {
         loadIcon(icon: icon)
         navigationItem.rightBarButtonItem?.isEnabled = true
+        navigationController?.popViewController(animated: true)
     }
     
     
